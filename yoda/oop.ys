@@ -1,0 +1,59 @@
+###################################
+# OOP pre-planning
+###################################
+
+# typedef
+acronym = [OBJ]
+typename = object
+conversion = object|obj
+
+# associated types 
+member accessor ([MEM]) stores requests for members.
+lazy evaluation less severe than [INX].
+:member
+
+## construction (can be formed like javascript does)
+
+# empty obj
+$myObj {} object =
+
+# adding members
+$myObj :name "Steve" = 
+
+# removing members
+$myObj :name delete
+
+## class definition
+$newObj {
+	# attribute
+	$self :name "Steve" =
+
+	# getter
+	$self :getName {
+		$self :name return
+	} () lambda =
+	
+	# setter
+	$self :setName {
+		$self :name $newName ~ =
+	} ($newName) lambda =
+
+	$self :pos {
+		$self :x 0 =
+		$self :y 0 =
+	} object =
+} object =
+
+("bob") $newObj :setName @
+
+
+## defining your own constructor
+$objdef {
+	$self :new {
+		$self :name $name =
+		$self :age  $age =
+	} ($name, $age) lambda =
+} object =
+
+$obj = ("joe", 20) $objdef :new @
+
