@@ -1,0 +1,23 @@
+# yodascript
+$a (0, 1, 2, 0, 1) =
+$b (3, 4, 5, 6, 7, 8) =
+$c ((1, 2), (3, 4), (5, 6)) =
+
+# php
+$a = array(0, 1, 2, 0, 1);
+$b = array(3, 4, 5, 6, 7, 8);
+$c = array(array(1, 2), array(3, 4), array(5, 6));
+
+$c $a 1 ] ] $a $b 0 ] ] ]			 # yodascript
+$c [ $a [ 1 ] ] [ $a [ $b [ 0 ] ] ]; # php
+
+
+$c[$a[1]][$a[$b[0]]]; # condensed php
+$c $a 1 ]]$a $b 0 ]]] # condensed yodascript
+
+
+$c	$a 1 ]] 
+	$a $b 0 ]]]
+
+$c	[ $a[ 1 ]]
+	[ $a[ $b[ 0 ]]]
