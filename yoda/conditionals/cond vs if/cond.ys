@@ -1,0 +1,46 @@
+$in 5 =
+$out null =
+{
+	{ $out 5 = }
+	{ $out 5 = } $in 0 ==
+	{ $out 5 = } $in 1 ==
+	{ $out 5 = } $in 2 ==
+	{ $out 5 = } $in 3 ==
+	{ $out 5 = } $in 4 ==
+	{ $out 5 = } $in 5 ==
+	{ $out 5 = } $in 6 ==
+	{ $out 5 = } $in 7 ==
+	{ $out 5 = } $in 8 ==
+	{ $out 5 = } $in 9 ==
+	{ $out 5 = } $in 10 ==
+	{ $out 5 = } $in 11 ==
+	{ $out 5 = } $in 12 ==
+	{ $out 5 = } $in 13 ==
+	{ $out 5 = } $in 14 == 
+	{ $out 5 = } $in 15 == 
+	{ $out 5 = } $in 16 == 
+	{ $out 5 = } $in 17 == 
+	{ $out 5 = } $in 18 == 
+	{ $out 5 = } $in 19 == 
+	{ $out 5 = } $in 20 == 
+	{ $out 5 = } $in 21 == 
+	{ $out 5 = } $in 22 == 
+	{ $out 5 = } $in 23 == 
+	{ $out 5 = } $in 24 == 
+	{ $out 5 = } $in 25 == 
+	{ $out 5 = } $in 26 == 
+	{ $out 5 = } $in 27 == 
+	{ $out 5 = } $in 28 == 
+	{ $out 5 = } $in 29 == 
+	{ $out 5 = } $in 30 == 
+	{ $out 5 = } $in 31 == 
+	{ $out 5 = } $in 32 == 
+	{ $out 5 = } $in 33 == 
+	{ $out 5 = } $in 34 == 
+	{ $out 5 = } $in 35 == 
+	{ $out 5 = } $in 36 == 
+	{ $out 5 = } $in 37 == 
+	{ $out 5 = } $in 38 == 
+	{ $out 5 = } $in 39 == 
+	{ $out 5 = } $in 40 == 
+} cond
