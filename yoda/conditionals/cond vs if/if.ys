@@ -1,0 +1,44 @@
+$in 5 =
+$out null =
+{ $out 5 = } else
+{ $out 5 = } $in 0 == elseif
+{ $out 5 = } $in 1 == elseif
+{ $out 5 = } $in 2 == elseif
+{ $out 5 = } $in 3 == elseif
+{ $out 5 = } $in 4 == elseif
+{ $out 5 = } $in 5 == elseif
+{ $out 5 = } $in 6 == elseif
+{ $out 5 = } $in 7 == elseif
+{ $out 5 = } $in 8 == elseif
+{ $out 5 = } $in 9 == elseif
+{ $out 5 = } $in 10 == elseif
+{ $out 5 = } $in 11 == elseif
+{ $out 5 = } $in 12 == elseif
+{ $out 5 = } $in 13 == elseif
+{ $out 5 = } $in 14 == elseif
+{ $out 5 = } $in 15 == elseif
+{ $out 5 = } $in 16 == elseif
+{ $out 5 = } $in 17 == elseif
+{ $out 5 = } $in 18 == elseif
+{ $out 5 = } $in 19 == elseif
+{ $out 5 = } $in 20 == elseif
+{ $out 5 = } $in 21 == elseif
+{ $out 5 = } $in 22 == elseif
+{ $out 5 = } $in 23 == elseif
+{ $out 5 = } $in 24 == elseif
+{ $out 5 = } $in 25 == elseif
+{ $out 5 = } $in 26 == elseif
+{ $out 5 = } $in 27 == elseif
+{ $out 5 = } $in 28 == elseif
+{ $out 5 = } $in 29 == elseif
+{ $out 5 = } $in 30 == elseif
+{ $out 5 = } $in 31 == elseif
+{ $out 5 = } $in 32 == elseif
+{ $out 5 = } $in 33 == elseif
+{ $out 5 = } $in 34 == elseif
+{ $out 5 = } $in 35 == elseif
+{ $out 5 = } $in 36 == elseif
+{ $out 5 = } $in 37 == elseif
+{ $out 5 = } $in 38 == elseif
+{ $out 5 = } $in 39 == elseif
+{ $out 5 = } $in 40 == if
