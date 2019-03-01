@@ -1,0 +1,130 @@
+<?php
+/*
+probably won't make abstract syntax tree, but might make preprocessor or sth
+
+main.cpp -- cli
+
+
+code_feed.hpp -- 
+
+
+core.hpp -- 
+parse.cpp -- runs program
+tokens.cpp -- expectable tokens
+
+maybe vec of operator objects?
+cond; act?
+
+
+types --
+	- number: need to find new implementation than just doing doubles
+	- string: use std::string this time to save time
+	- ref:
+		- empty
+		- null
+	- lambda
+	- object
+	- array
+	- framed-block/macro - probably should find new name
+
+value.cpp -- universal datatype (num, str, null, empty, ref)
+ref.cpp -- reference, to data or variable (ie - reference to reference)
+	- empty references
+	- null references
+
+frame.cpp -- current stack frame / scope 
+	- data: referenced data (normal data not placed here)
+	- vars: variables in given stack frame
+		+ go through prev[] when looking for higher refs?
+	- stack: new mainStack
+	- defs: aliases
+	- prev[]: array of ptrs to previous frames in array (needed?)
+	- body: code to run
+
+
+lambdas -- probably gonna remove some features of ys1 in order to improve lambda performance
+	- ys1 features: missing param handler, va_args
+	- misssing params will be replaced by setting value to `empty`
+	- va_args replaced by __args ? or $__args or args
+
+lists -- may need to change implementation so that list indicies are automatically converted to references
+
+objects -- may need to change implementation so that object members are automatically created when called for
+	- should have a get member 
+
+
+
+
+
+features:
+	- operator overloading? would be nice
+	- with new structure gotos would be possible
+
+
+
+
+*/
+objects: newish
+
+#object member accessors
+$a:b:c == $a :b :c == $a "b" : "c" : # old
+or
+$a.b.c == $a .b .c == $a 'b' . 'c' . # potential new
+
+#old object literal syntax:
+{
+	:a 5				# int member a
+	:b { "hi" print }	# macro/framed block member b
+	:c "wut"			# string member c
+} object
+# I liked this because it could be written similar to JSON (YSON > JSON ?)
+# however due to member accessors no longer being lazy evaluated,
+# the old syntax would be inefficient/difficult to reimplement
+
+# new object literal syntax proposition 
+# algorithmically equivalent; not as simple as json
+{
+	$self.a 5
+	$self.b { "hi" print }
+	$self.c "wut"
+} object
+
+# I personally believe that the class => instantiate => object model
+# makes less sense in scripting langauges where memory isn't as much a concern
+# and in most cases it's easier to conceptualize each object independently
+# having it's own set of members as opposed to having references to 
+# methods defined in the class
+# nonetheless I also want to support the people who do care about performance
+# and memory, so here are my ideas (very javascript inspired)
+
+# all static members of the class will be set here
+$myClass {
+	$self.a 	5
+	$self.num	{ 5 return }
+} object =
+# user can `define` the class if they want
+
+# members of $obj will simply be references to the corresponding
+# members of $myClass. If a member's value is changed the reference
+# to the class member will be replaced with the new value
+$obj $myClass new =
+$obj.a print # 5
+$obj.a 10 = 
+$myClass.a print # 5
+
+
+
+
+
+
+/*
+what happens when things go out of scope
+currently: segfault
+future: 
+	1. a copy of the value from the last time it was referenced will be used
+	2. the relevant value will not go out of scope until the thing referencing it is deleted
+		+ will require proper garbage collector
+		+ will optimize complex programs while slowing down simple ones
+
+
+*/

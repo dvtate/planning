@@ -1,0 +1,50 @@
+<?
+
+
+class Def {
+	bool native;
+	bool run; 
+	union {
+		Value value;
+		Frame::Exit (*act)(Frame&);
+	} val;
+}
+class Namespace {
+	unordered_map<string, Def> labels; // labels and corresponding values
+}
+
+$a {
+	{ value } "label" # pushes value onto stack when $a :label called
+	{ value } "label"
+} namespace =
+
+
+$a :value
+$a:value
+
+
+
+
+
+std::vector<Token> exp_tokens;
+
+// operator functions
+Frame::Exit myfun1,2,3,4(Frame&);
+
+Namespace exp_defs = {
+	{ "operator1", Def(myfun1) },
+	{ "operator2", Def(myfun2) },
+	...
+};
+
+
+
+
+
+?>
+
+
+
+
+
+

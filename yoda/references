@@ -1,0 +1,55 @@
+
+
+<?php
+/* so in summary because varaible names are no longer lazy evaluated, i have to
+get more specific about references.
+
+questions:
+- how should i give users control over references?
+- how strict should i enforce 
+*/
+
+# currently
+$a 5 =		# a->5			# a references 5
+$b $a =		# b->a->5 		# b references a
+$b 6 =		# b->a->6		# value of a changed
+
+# because variable names aren't lazy evaluated anymore, this causes problems
+# with scopes
+{
+	# here local reference to a will overwrite the global value of a
+	$a 10 =
+} @
+
+######
+# temporary solution?
+# users should use the `set` keyword when assigning a new variable
+######
+$a 5 set	# a->5		# a references 5
+$b $a set	# b->a->5	# b references a
+$b 6 =		# b->a->6   # value of a changed
+$b "hi" set	# a->6, b->"hi" # set only changes the value of b
+
+{
+	# same as before, changes global a's value to 10
+	$a 10 =
+	# makes local a reference "wut" without mutating global a
+	$a "wut" set
+
+} @
+
+
+# although this fixes the issue with scoping, I still think there
+# is room for improvement for references. Now internally there isn't
+# any name associated with references anymore, so I think that this 
+# topic in general might get a bit more confusing for people if I don't
+# provide a 
+
+# Also, you can make a varaible to reference another's value
+#   (and not reference the variable itself) by using the copy operator ~
+$b 5 set	# b->5
+$a $b ~ =	# a->5
+
+
+
+?>
