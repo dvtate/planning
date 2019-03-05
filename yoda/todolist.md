@@ -14,9 +14,9 @@
     - [x] namespace member accessor
 - [x] defines
 - [x] lists
-    - [ ] list operators
-    - [ ] brackets
-    - [ ] convert to reference based system
+    - [ ] list operators: list:sort, list:map, list:...
+    - [x] brackets
+    - [x] convert to reference based system
 - [ ] loops
 - [ ] conditionals
 - [ ] if statements

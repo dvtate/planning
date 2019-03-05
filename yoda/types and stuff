@@ -1,0 +1,30 @@
+datatypes (builtin):
+> note: 3 letter acronyms are only used to denote internal enum values
+EMT - empty		- placeholder that prevents NameErrors
+DEC - float		- double precision floating point numbers
+INT - integer	- arbitrary precision integers (via GNU GMP)
+STR - string	- text (std::string)
+REF - reference	- essentially a pointer
+IMR - immuteable ref - if it points to something else it will be mutated instead of the other thing
+MAC - macro		- a block of code that can be expanded and run
+ARR - list		- an array of references to values
+LAM - lambdas	- equivalent to first class anonymous functions
+OBJ - objects	- like dictionaries but with quirks
+DEF - definitiion - evaluates to some value or some operation
+NSP - namespace - a collection of DEF's to prevent name collisions (in practice like immuteable object)
+
+
+type emulation to be imported via language extensions:
+- regular expressions 
+	+ objects w/ members containing DEF's which point to natively implemented regexp actions
+	+ will have literal syntax parseing similar javascript /^hi+([0-9]+)$/
+	+ overloaded representation 
+
+
+
+ideas: 
+- make setTok() add tok.length() to offset
+	+ change operators accordingly
+	+ should simiplifiy operators slightly
+- make a Macro class which tracks starting file names and char numbers for improved debugging
+
