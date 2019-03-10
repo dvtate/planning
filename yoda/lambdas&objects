@@ -1,0 +1,65 @@
+
+
+# for now this is the syntax for objects
+$account_system {
+	self.users () # self.users = empty list
+	self.online ()
+} object :=
+
+# $users_count is a lambda that returns the number of users for a given account_system object
+$users_count {
+	$acct_sys.users size return
+} ('acct_sys') lambda :=
+
+# call the lambda and print output
+($account_system) $users_count @ println
+
+# so we can define a member lambda for the account_system object
+$account_system.signup {
+	self.users $user list:push
+} ('user') lambda :=
+
+
+
+# call member lambda
+({} object) $account_system.signup @
+
+
+important design decisions:
+- what happense when a member lambda is returned, but the object it is a member of is
+  supposed to go out of scope
+
+	when the object member accessor token (`.member`) is evaluated, it pushes onto the stack
+	a reference to the object member (created if not previously existing), and also adds a
+	'related' reference that points to the origin object as a part of that reference, this way
+	as long as that reference isn't deleted the origin object's reference counter will not go
+	to zero.
+
+- Why can't we just give the member lambda's self references?
+	
+	making the lambdas reference the object and the object reference the lambdas would
+	prevent either from being deleted, and thus introduce memory leaks
+
+- How do member lambdas have a sense of self?
+
+	when the @ operator is called, it checks for the previously mentioned `related` reference
+	and if found, `define`s "self" to be that reference within the scope of that lambda call.
+	
+- Why don't lambdas accept a list of variable references like before?
+
+	because the old interpreter lazy evaluated variable	names, the list of variables could easliy
+	be mapped to a list of their names. However with the new interpreter, variable names are 
+	converted to references to the data they point to.
+	
+- Could you make the old syntax work?
+	
+	short answer: yes, but why?
+	long answer: currently list elements are evaluated within a separate scope from the one
+	where the list will reside. By changing this to make it so that lists are evaluated
+	on the same scope, variables referenced within the list will remain in scope and can be
+	accessed by frame.vars. The list of references created by the old syntax could then 
+	be looked up in reverse to get their names. The would be somewhat sluggish, but would
+	would slow down the process of creating a lambda but in an ideal world lambdas are defined
+	only once and not in performance needing loops.
+	This would require a good deal of engineering and may introduce technical debt, which is
+	why I'm putting it off until I have nothing better to do.
