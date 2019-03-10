@@ -1,0 +1,52 @@
+operator overloading
+
+basic operators:
+op | member lambda called
++	.__operator+
+-	.__operator-
+*	.__operator*
+/	.__operator/
+//	.__operator//
+**	.__operator**
+%	.__operator%
+<<	.__operator<<
+>>	.__operator>>
+&	.__operator&
+^	.__operator^
+|	.__operator|
+
++=	.__operator+=
+-=	.__operator-=
+*=	.__operator*=
+/=	.__operator/=
+//=	.__operator//=
+**=	.__operator**= 
+%=	.__operator%=
+<<=	.__operator<<=
+>>=	.__operator>>=
+&=	.__operator&=
+^=	.__operator^=
+|=	.__operator|=
+
+>	.__operator>
+<	.__operator<
+>=	.__operator>=
+<=	.__operator<=
+==	.__operator==
+!	.__operator!
+!=	.__operator!=
+@	.__operator@
+&&	.__operator&&	?should probably just overload truthy
+||	.__operator|| 	?should probably just overload truthy
+!	.__operator!	?should probably just overload truthy
+
+
+generic operators:
+abs		.__abs
+size	.__size
+str		.__str
+depict	.__depict
+int		.__int
+float	.__float
+keys	.__keys
+
