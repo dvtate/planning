@@ -1,0 +1,30 @@
+lol item counters:
+
+for each game:
+	for each champion:
+
+
+table: 
+champion	role	enemy items
+
+
+game modes: 
+400 draft
+420 soloq
+430 blind
+440 flexq
+CLASSIC
+
+/lol/match/v4/matches/matchId
+
+
+item counters probably too hard to implement in only 2wks
+{
+    "profileIconId": 4086,
+    "name": "GGun",
+    "puuid": "a9y1wIGRQSFzwQRdRYabOXbXdRf3onaPUCQNkdZIyMFOh55LnzjDfwMV9j1MIzFoSkWgvRu8rM6ynA",
+    "summonerLevel": 74,
+    "accountId": "QUJ-xolmtoHxvgf96rC9X26BhLkrL1bytSciJnFk9U13XpA",
+    "id": "ZL04Gl_SaOM6HDLWJN5YllTMZkGRgVG_w2Q5tLX878xLTmQ",
+    "revisionDate": 1557269246000
+}
