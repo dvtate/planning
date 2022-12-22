@@ -1,0 +1,71 @@
+# a C-style for loop
+$for {
+
+	$init eval
+
+	{
+		$body @
+		$increment @
+	} { $condition @ } while
+
+} ($body, $init, $condition,
+	($increment, { # this makes $init optional
+		$increment $condition ~ =
+		$condition $init ~ =
+		$init {} =
+	})
+) lambda =
+
+
+"For-loop:" println
+({
+	$v print "," print
+}, { $v 0 = }, { $v 3 < }, { $v ++ }) $for @
+
+
+"\nUsing external counter:" println
+
+# example where counter needs to be kept
+$g 0 =
+({
+	$g print "," print
+}, { $g 0 < }, { $g ++ }) $for @
+
+
+# demonstrate the variable hasn't gone out of scope
+"\n$g " $g + " =" + println 
+
+
+# the break keyword works as one would expect
+"`break` works as one would expect" println
+({
+	$i print "," print
+	{
+		"" println
+		break
+	} $i 3 == if
+}, { $i 0 = }, { $i 5 < }, { $i ++ }) $for @
+
+"return usually needs minor modification" println
+
+# return usually requires some modification
+() { # calling an anonymous lambda
+
+	# set $x = the return value of $for or null if it doesn't return
+	# empty list elements are interpreted as null which is why this works
+	$x (
+		({
+			$i print "," print
+			{ 666 return } $i 3 == if
+		}, { $i 0 = }, { $i 5 < }, { $i ++ }) $for @
+	) 0 ] ~ =
+
+	# if return was called then return it
+	{ $x ~ return } $x null != if
+
+	# just as proof
+	"this wont get returned" return
+
+} () lambda @ println
+
+
