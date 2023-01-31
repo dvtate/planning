@@ -1,0 +1,46 @@
+
+ChannelValueType: variant<bool | int | float | etc.>
+
+Channel:
+- type: Carries values of a type in ChannelValueType
+- targets: Neuron[]
+
+Neuron: individual unit of computation
+- all neurons have the same
+- state: ? array of ChannelValueTypes?
+- isBipolar: bool - do we just connect two 
+- inputChannels
+- outputChannels
+
+Sensor: input channel
+- type in ChannelValueType
+
+Region: different collections of neurons
+
+Birth Instructions:
+- construct region
+- construct cell in region
+	- inputs outputs
+- connect cells by region:cell index: input+output indicies
+
+Behaviors:
+- TEMPLATE: inputs actions target
+- inputs: state offset
+- outputs: 
+
+DNA
+- Birth Instructions: how to initialize cells at birth
+	- these would be instructions to assemble cells
+
+- Behaviors
+
+- mutability: bool - can particular gene be mutated or not?
+
+Structure Checker:
+- Avoid Cycles - problems.2
+
+
+Problems:
+1. How would the neuron determine which behavior to use? Need to nail down algo...
+2. System is has many concurrent moving parts and can have cycles ... difficult to simulate
+
