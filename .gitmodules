@@ -1,0 +1,3 @@
+[submodule "ideas"]
+	path = ideas
+	url = https://github.com/dvtate/ideas
